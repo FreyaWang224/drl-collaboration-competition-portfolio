@@ -20,6 +20,8 @@ for seed in p['training_seeds']:
     evaluation = root/'runs'/f'{prefix}_eval_seed{seed}'
     summary = json.loads((training/'summary.json').read_text())
     evaluation_summary = json.loads((evaluation/'summary.json').read_text())
+    if summary.get('algorithm', 'independent_ddpg') != p['algorithm']:
+        raise ValueError('Training algorithm mismatch')
     if {k: summary['config'][k] for k in p['config']} != p['config']:
         raise ValueError('Run differs from frozen hyperparameters')
     records = [json.loads(f.read_text()) for f in sorted(training.glob('episode_*.json'))]
@@ -42,6 +44,8 @@ for seed in p['training_seeds']:
         raise ValueError('First-solved selection mismatch')
     selected = training/('first_solved.pt' if first is not None else 'final.pt')
     manifest = json.loads((evaluation/'manifest.json').read_text())
+    if manifest['algorithm'] != p['algorithm']:
+        raise ValueError('Evaluation algorithm mismatch')
     if manifest['checkpoint_sha256'] != hashlib.sha256(selected.read_bytes()).hexdigest():
         raise ValueError('Wrong evaluated checkpoint')
     eval_records = [json.loads(f.read_text()) for f in sorted(evaluation.glob('episode_*.json'))]

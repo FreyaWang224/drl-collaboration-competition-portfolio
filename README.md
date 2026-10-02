@@ -2,7 +2,7 @@
 
 A from-scratch, two-agent continuous-control baseline for Udacity's supplied Unity Tennis environment. Each agent has its own actor and **local** critic. Synchronized replay storage is shared; this is independent DDPG, not MADDPG.
 
-**Status:** implementation and 21 tests complete; real Unity smoke test complete; two development pilots retained. The longer pilot reached the course training threshold. The predeclared three-seed runs are in progress; no final cross-seed evaluation claim yet.
+**Status:** implementation and 21 tests complete; real Unity smoke test complete; two development pilots retained. The longer pilot reached the course training threshold. Three predeclared independent training runs and 30 evaluation episodes per model are complete. See Report.md and artifacts/baseline_results.json for the verified measurements.
 
 ## Task and verified environment
 

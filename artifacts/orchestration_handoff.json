@@ -1,0 +1,5 @@
+{
+  "reason": "Parallelize evaluation of the three models; unchanged checkpoints, seeds and budgets",
+  "stopped_coordinator": 92662,
+  "preserved_seed11_evaluator": 93361
+}

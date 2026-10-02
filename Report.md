@@ -2,7 +2,7 @@
 
 ## Scope and status
 
-This project implements two independent DDPG agents for Udacity's supplied Tennis environment. It investigates a simple local-critic baseline before introducing centralized critics. The baseline is **not MADDPG**. Implementation checks and real development pilots are complete. Confirmatory three-seed training is complete and independent evaluation is in progress; the numbers below are explicitly development data.
+This project implements two independent DDPG agents for Udacity's supplied Tennis environment. It investigates a simple local-critic baseline before introducing centralized critics. The baseline is **not MADDPG**. Implementation checks and real development pilots are complete. Confirmatory three-seed training and independent evaluation are complete; development pilots and confirmatory measurements are reported separately below.
 
 ## Problem
 
@@ -63,7 +63,23 @@ All three training seeds reached the threshold: first qualifying endpoints 1282 
 
 Evaluation orchestration was changed to run models concurrently. Ending the original coordinator also caused its evaluator subprocess to be cleaned up by the execution tool. The first 10 complete seed-11 evaluation episodes were retained, the incomplete attempt directory was archived, and only the remaining predeclared seeds were resumed using the unchanged checkpoint hash. This infrastructure interruption is not a score-based retry or seed replacement.
 
-**No final independent evaluation result is reported yet.**
+## Confirmatory results
+
+| Training seed | First solved episode | First solved environment step | Complete training episodes | Training truncations | Evaluation mean | Within-model population SD | Evaluation episodes / truncations |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| 11 | 1282 | 46624 | 1971 | 1 | 1.242667 | 1.057569 | 30 / 0 |
+| 22 | 1473 | 49322 | 2085 | 1 | 0.588333 | 0.916814 | 30 / 0 |
+| 33 | 1222 | 54761 | 1692 | 1 | 2.023000 | 0.991131 | 30 / 0 |
+
+Across the three training-model evaluation means: **1.284667 ± 0.586453**, where ± is population SD across models, not a confidence interval or significance claim.
+
+Training threshold attainment and independent evaluation are distinct measurements. The within-model SD column describes variation across 30 episodes; it is not the across-model SD above.
+
+![Independent evaluation scores](artifacts/evaluation_scores.png)
+
+![Training seed 11](artifacts/baseline_seed11/training_curve.png)
+![Training seed 22](artifacts/baseline_seed22/training_curve.png)
+![Training seed 33](artifacts/baseline_seed33/training_curve.png)
 
 ## Limitations and next questions
 

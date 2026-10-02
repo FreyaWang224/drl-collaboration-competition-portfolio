@@ -1,0 +1,545 @@
+{
+  "kind": "formal",
+  "records": [
+    {
+      "agent_returns": [
+        0.1900000050663948,
+        0.10000000149011612
+      ],
+      "score": 0.1900000050663948,
+      "steps": 50,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.38,
+      "diagnostics": [],
+      "evaluation_seed": 20001,
+      "training_seed": 33
+    },
+    {
+      "agent_returns": [
+        2.600000038743019,
+        2.600000038743019
+      ],
+      "score": 2.600000038743019,
+      "steps": 1001,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.4420579420579421,
+      "diagnostics": [],
+      "evaluation_seed": 20002,
+      "training_seed": 33
+    },
+    {
+      "agent_returns": [
+        2.600000038743019,
+        2.600000038743019
+      ],
+      "score": 2.600000038743019,
+      "steps": 1001,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.4403096903096903,
+      "diagnostics": [],
+      "evaluation_seed": 20003,
+      "training_seed": 33
+    },
+    {
+      "agent_returns": [
+        2.600000038743019,
+        2.600000038743019
+      ],
+      "score": 2.600000038743019,
+      "steps": 1001,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.44105894105894106,
+      "diagnostics": [],
+      "evaluation_seed": 20004,
+      "training_seed": 33
+    },
+    {
+      "agent_returns": [
+        1.3000000193715096,
+        1.290000019595027
+      ],
+      "score": 1.3000000193715096,
+      "steps": 504,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.44345238095238093,
+      "diagnostics": [],
+      "evaluation_seed": 20005,
+      "training_seed": 33
+    },
+    {
+      "agent_returns": [
+        0.10000000149011612,
+        0.09000000171363354
+      ],
+      "score": 0.10000000149011612,
+      "steps": 42,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.2619047619047619,
+      "diagnostics": [],
+      "evaluation_seed": 20006,
+      "training_seed": 33
+    },
+    {
+      "agent_returns": [
+        2.600000038743019,
+        2.600000038743019
+      ],
+      "score": 2.600000038743019,
+      "steps": 1001,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.44455544455544455,
+      "diagnostics": [],
+      "evaluation_seed": 20007,
+      "training_seed": 33
+    },
+    {
+      "agent_returns": [
+        2.600000038743019,
+        2.600000038743019
+      ],
+      "score": 2.600000038743019,
+      "steps": 1001,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.4468031968031968,
+      "diagnostics": [],
+      "evaluation_seed": 20008,
+      "training_seed": 33
+    },
+    {
+      "agent_returns": [
+        2.600000038743019,
+        2.600000038743019
+      ],
+      "score": 2.600000038743019,
+      "steps": 1001,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.44455544455544455,
+      "diagnostics": [],
+      "evaluation_seed": 20009,
+      "training_seed": 33
+    },
+    {
+      "agent_returns": [
+        2.600000038743019,
+        2.600000038743019
+      ],
+      "score": 2.600000038743019,
+      "steps": 1001,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.43806193806193805,
+      "diagnostics": [],
+      "evaluation_seed": 20010,
+      "training_seed": 33
+    },
+    {
+      "agent_returns": [
+        2.600000038743019,
+        2.600000038743019
+      ],
+      "score": 2.600000038743019,
+      "steps": 1001,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.44405594405594406,
+      "diagnostics": [],
+      "evaluation_seed": 20011,
+      "training_seed": 33
+    },
+    {
+      "agent_returns": [
+        2.600000038743019,
+        2.600000038743019
+      ],
+      "score": 2.600000038743019,
+      "steps": 1001,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.43906093906093907,
+      "diagnostics": [],
+      "evaluation_seed": 20012,
+      "training_seed": 33
+    },
+    {
+      "agent_returns": [
+        0.20000000298023224,
+        0.09000000171363354
+      ],
+      "score": 0.20000000298023224,
+      "steps": 66,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.4090909090909091,
+      "diagnostics": [],
+      "evaluation_seed": 20013,
+      "training_seed": 33
+    },
+    {
+      "agent_returns": [
+        2.600000038743019,
+        2.600000038743019
+      ],
+      "score": 2.600000038743019,
+      "steps": 1001,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.44005994005994004,
+      "diagnostics": [],
+      "evaluation_seed": 20014,
+      "training_seed": 33
+    },
+    {
+      "agent_returns": [
+        1.3000000193715096,
+        1.290000019595027
+      ],
+      "score": 1.3000000193715096,
+      "steps": 504,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.4375,
+      "diagnostics": [],
+      "evaluation_seed": 20015,
+      "training_seed": 33
+    },
+    {
+      "agent_returns": [
+        2.600000038743019,
+        2.600000038743019
+      ],
+      "score": 2.600000038743019,
+      "steps": 1001,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.4420579420579421,
+      "diagnostics": [],
+      "evaluation_seed": 20016,
+      "training_seed": 33
+    },
+    {
+      "agent_returns": [
+        2.600000038743019,
+        2.600000038743019
+      ],
+      "score": 2.600000038743019,
+      "steps": 1001,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.44655344655344653,
+      "diagnostics": [],
+      "evaluation_seed": 20017,
+      "training_seed": 33
+    },
+    {
+      "agent_returns": [
+        0.20000000298023224,
+        0.09000000171363354
+      ],
+      "score": 0.20000000298023224,
+      "steps": 66,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.4053030303030303,
+      "diagnostics": [],
+      "evaluation_seed": 20018,
+      "training_seed": 33
+    },
+    {
+      "agent_returns": [
+        2.600000038743019,
+        2.600000038743019
+      ],
+      "score": 2.600000038743019,
+      "steps": 1001,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.44105894105894106,
+      "diagnostics": [],
+      "evaluation_seed": 20019,
+      "training_seed": 33
+    },
+    {
+      "agent_returns": [
+        2.600000038743019,
+        2.600000038743019
+      ],
+      "score": 2.600000038743019,
+      "steps": 1001,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.45054945054945056,
+      "diagnostics": [],
+      "evaluation_seed": 20020,
+      "training_seed": 33
+    },
+    {
+      "agent_returns": [
+        2.600000038743019,
+        2.600000038743019
+      ],
+      "score": 2.600000038743019,
+      "steps": 1001,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.43956043956043955,
+      "diagnostics": [],
+      "evaluation_seed": 20021,
+      "training_seed": 33
+    },
+    {
+      "agent_returns": [
+        2.600000038743019,
+        2.600000038743019
+      ],
+      "score": 2.600000038743019,
+      "steps": 1001,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.4368131868131868,
+      "diagnostics": [],
+      "evaluation_seed": 20022,
+      "training_seed": 33
+    },
+    {
+      "agent_returns": [
+        0.09000000171363354,
+        0.10000000149011612
+      ],
+      "score": 0.10000000149011612,
+      "steps": 50,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.38,
+      "diagnostics": [],
+      "evaluation_seed": 20023,
+      "training_seed": 33
+    },
+    {
+      "agent_returns": [
+        2.600000038743019,
+        2.600000038743019
+      ],
+      "score": 2.600000038743019,
+      "steps": 1001,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.4435564435564436,
+      "diagnostics": [],
+      "evaluation_seed": 20024,
+      "training_seed": 33
+    },
+    {
+      "agent_returns": [
+        0.10000000149011612,
+        0.09000000171363354
+      ],
+      "score": 0.10000000149011612,
+      "steps": 39,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.24358974358974358,
+      "diagnostics": [],
+      "evaluation_seed": 20025,
+      "training_seed": 33
+    },
+    {
+      "agent_returns": [
+        2.600000038743019,
+        2.600000038743019
+      ],
+      "score": 2.600000038743019,
+      "steps": 1001,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.43606393606393606,
+      "diagnostics": [],
+      "evaluation_seed": 20026,
+      "training_seed": 33
+    },
+    {
+      "agent_returns": [
+        2.600000038743019,
+        2.600000038743019
+      ],
+      "score": 2.600000038743019,
+      "steps": 1001,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.4473026973026973,
+      "diagnostics": [],
+      "evaluation_seed": 20027,
+      "training_seed": 33
+    },
+    {
+      "agent_returns": [
+        2.600000038743019,
+        2.600000038743019
+      ],
+      "score": 2.600000038743019,
+      "steps": 1001,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.44105894105894106,
+      "diagnostics": [],
+      "evaluation_seed": 20028,
+      "training_seed": 33
+    },
+    {
+      "agent_returns": [
+        2.600000038743019,
+        2.600000038743019
+      ],
+      "score": 2.600000038743019,
+      "steps": 1001,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.43781218781218784,
+      "diagnostics": [],
+      "evaluation_seed": 20029,
+      "training_seed": 33
+    },
+    {
+      "agent_returns": [
+        2.600000038743019,
+        2.600000038743019
+      ],
+      "score": 2.600000038743019,
+      "steps": 1001,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.44505494505494503,
+      "diagnostics": [],
+      "evaluation_seed": 20030,
+      "training_seed": 33
+    }
+  ]
+}

@@ -27,21 +27,31 @@ for seed in protocol['training_seeds']:
     process = subprocess.Popen(cmd, cwd=root, env=env, stdout=log, stderr=subprocess.STDOUT)
     processes.append((seed, process, log, output))
 results = []
+ready = []
 for seed, process, log, output in processes:
     code = process.wait()
     log.close()
     result = dict(seed=seed, training_exit_code=code)
-    if code == 0:
-        summary = json.loads((output / 'summary.json').read_text())
-        checkpoint = output / ('first_solved.pt' if summary['first_solved'] is not None else 'final.pt')
-        evaluation = root / 'runs' / f'baseline_eval_seed{seed}'
-        with (root/'runs'/f'baseline_eval_seed{seed}.log').open('x') as evaluation_log:
-            cmd = [python, '-m', 'tennis.cli', 'evaluate', '--environment', binary,
-                   '--output', str(evaluation), '--checkpoint', str(checkpoint), '--worker-id', str(seed+100),
-                   '--max-steps', str(protocol['external_episode_step_cap']), '--evaluation-seeds']
-            cmd += [str(x) for x in protocol['evaluation_seeds']]
-            result['evaluation_exit_code'] = subprocess.run(cmd, cwd=root, env=env, stdout=evaluation_log,
-                                                            stderr=subprocess.STDOUT).returncode
     results.append(result)
+    if code == 0:
+        ready.append((seed, output, result))
+    (root/'runs'/'protocol_status.json').write_text(json.dumps(results, indent=2))
+evaluation_processes = []
+for seed, output, result in ready:
+    summary = json.loads((output / 'summary.json').read_text())
+    if {k: summary['config'][k] for k in protocol['config']} != protocol['config']:
+        raise RuntimeError('Training configuration differs from frozen protocol')
+    checkpoint = output / ('first_solved.pt' if summary['first_solved'] is not None else 'final.pt')
+    evaluation = root / 'runs' / f'baseline_eval_seed{seed}'
+    log = (root/'runs'/f'baseline_eval_seed{seed}.log').open('x')
+    cmd = [python, '-m', 'tennis.cli', 'evaluate', '--environment', binary,
+           '--output', str(evaluation), '--checkpoint', str(checkpoint), '--worker-id', str(seed+100),
+           '--max-steps', str(protocol['external_episode_step_cap']), '--evaluation-seeds']
+    cmd += [str(x) for x in protocol['evaluation_seeds']]
+    process = subprocess.Popen(cmd, cwd=root, env=env, stdout=log, stderr=subprocess.STDOUT)
+    evaluation_processes.append((process, log, result))
+for process, log, result in evaluation_processes:
+    result['evaluation_exit_code'] = process.wait()
+    log.close()
     (root/'runs'/'protocol_status.json').write_text(json.dumps(results, indent=2))
     print(json.dumps(result), flush=True)

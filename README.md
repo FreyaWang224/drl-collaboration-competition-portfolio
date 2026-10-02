@@ -46,7 +46,8 @@ Output directories must be new; existing runs are never silently overwritten.
   --worker-id 111 --evaluation-seeds 20001 20002 20003
 
 # Complete predeclared 3-training-seed / 30-evaluation-episode protocol
-# Runs three training processes on separate workers; each uses one Torch CPU thread.
+# Runs three training processes on separate workers, then three evaluation processes.
+# Each uses one Torch CPU thread.
 .venv/bin/python scripts/run_protocol.py
 ```
 

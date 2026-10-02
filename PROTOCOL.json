@@ -1,0 +1,16 @@
+{
+  "status": "frozen_before_confirmatory_runs",
+  "algorithm": "independent_ddpg",
+  "training_seeds": [11, 22, 33],
+  "evaluation_seeds": [20001, 20002, 20003, 20004, 20005, 20006, 20007, 20008, 20009, 20010, 20011, 20012, 20013, 20014, 20015, 20016, 20017, 20018, 20019, 20020, 20021, 20022, 20023, 20024, 20025, 20026, 20027, 20028, 20029, 20030],
+  "max_episodes": 3000,
+  "max_environment_steps": 200000,
+  "external_episode_step_cap": 10000,
+  "config": {"hidden": 128, "batch_size": 128, "capacity": 100000, "gamma": 0.99, "tau": 0.005, "actor_lr": 0.0001, "critic_lr": 0.001, "noise_std": 0.2, "warmup_steps": 10000, "learn_every": 1, "updates_per_event": 1},
+  "selection": "first checkpoint with 100 consecutive complete training episodes averaging >=0.5; final checkpoint if unsolved, explicitly labelled",
+  "evaluation": "30 independent Unity process seeds per frozen model; no exploration or learning; no tuning on these results",
+  "truncation": "report separately, break rolling window; no aggregate evaluation mean if any evaluation episode truncates",
+  "aggregation": "mean and population SD of three model evaluation means, not confidence interval or significance",
+  "pilots_excluded": ["pilot_seed0", "pilot_long_seed0", "pilot_diagnostic_eval_seed0"],
+  "legacy_done_limit": "local_done treated as terminal; internal timeout cannot be distinguished by this API"
+}

@@ -24,7 +24,7 @@ output.mkdir(parents=True, exist_ok=True)
 for filename in ('summary.json', 'manifest.json'):
     shutil.copyfile(source / filename, output / filename)
 (output / 'episodes.json').write_text(json.dumps(dict(kind=args.kind, records=records), indent=2))
-if 'first_solved' in summary:
+if 'first_solved' in summary and args.kind != 'smoke':
     fig, ax = plt.subplots(figsize=(9, 4.5))
     complete = [r for r in records if r['complete']]
     ax.plot([r['episode'] for r in complete], [r['score'] for r in complete],

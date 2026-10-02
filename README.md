@@ -61,7 +61,7 @@ See `Report.md`, `PROTOCOL.json`, and `artifacts/`. Raw local run directories an
 
 Legacy `local_done` does not distinguish true terminal states from internal Unity time limits. This baseline treats it as terminal, explicitly following the legacy convention. External script caps are logged separately and preserve bootstrapping; a truncated episode breaks the qualifying rolling window. Evaluation aggregates are withheld if any episode is truncated.
 
-Resume material stays local under ignored `resume/`. Previous project repositories are not reused or modified. No GitHub remote has been created yet.
+Resume material stays local under ignored `resume/`. Previous project repositories are not reused or modified. Public repository: https://github.com/FreyaWang224/drl-collaboration-competition-portfolio.
 
 ## Sources
 

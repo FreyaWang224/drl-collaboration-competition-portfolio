@@ -1,0 +1,25 @@
+{
+  "algorithm": "maddpg",
+  "config": {
+    "observation_size": 24,
+    "hidden": 128,
+    "batch_size": 128,
+    "capacity": 100000,
+    "gamma": 0.99,
+    "tau": 0.005,
+    "actor_lr": 0.0001,
+    "critic_lr": 0.001,
+    "noise_std": 0.2,
+    "warmup_steps": 10000,
+    "learn_every": 1,
+    "updates_per_event": 1
+  },
+  "seed": 11,
+  "episodes": 1777,
+  "first_solved": 1267,
+  "environment_steps": 200000,
+  "learning_rounds": 190001,
+  "truncated_episodes": 1,
+  "random_policy_audit": false,
+  "elapsed_seconds": 921.625354584
+}

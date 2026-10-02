@@ -1,0 +1,15 @@
+{
+  "training_seed": 33,
+  "checkpoint_metadata": {
+    "selection": "first_complete_rolling100_ge_0.5",
+    "episode": 1176,
+    "rolling100": 0.5044000075757503
+  },
+  "requested_episodes": 30,
+  "truncated_episodes": 0,
+  "mean_score": 1.520333356099824,
+  "within_model_population_sd": 1.2416185409303813,
+  "all_complete": true,
+  "learning_rounds_during_evaluation": 0,
+  "elapsed_seconds": 1808.856505958
+}

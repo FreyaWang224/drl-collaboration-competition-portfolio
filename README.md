@@ -84,4 +84,4 @@ Resume material stays local under ignored `resume/`. Previous project repositori
 .venv/bin/python scripts/run_protocol.py --protocol PROTOCOL_MADDPG.json
 ```
 
-MADDPG performance is not yet established. Its pilot is development evidence only. The planned comparison keeps hidden widths and sampling budgets the same; centralized critics have more input parameters, so compute and parameter counts must also be reported. Baseline evidence is preserved under the `baseline-v1` tag.
+Formal MADDPG experiments are complete; see [MADDPG_REPORT.md](MADDPG_REPORT.md). Its pilot remains development evidence only. The planned comparison keeps hidden widths and sampling budgets the same; centralized critics have more input parameters, so compute and parameter counts must also be reported. Baseline evidence is preserved under the `baseline-v1` tag.

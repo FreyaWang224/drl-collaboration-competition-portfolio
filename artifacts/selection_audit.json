@@ -1,0 +1,38 @@
+[
+  {
+    "training_seed": 11,
+    "selection": {
+      "selection": "first_complete_rolling100_ge_0.5",
+      "episode": 1282,
+      "rolling100": 0.501100007519126
+    },
+    "environment_steps": 46624,
+    "checkpoint_sha256": "33912f30b35b8417f8d6a2a37f1bee9633e0c02f850593ac1197cf72017bfdcc",
+    "recorded_rolling100": 0.501100007519126,
+    "pair_saved_together": true
+  },
+  {
+    "training_seed": 22,
+    "selection": {
+      "selection": "first_complete_rolling100_ge_0.5",
+      "episode": 1473,
+      "rolling100": 0.5025000075995922
+    },
+    "environment_steps": 49322,
+    "checkpoint_sha256": "77463674cd839e959c116bedfdda346a2940a3f9e68257004284be78da1bf609",
+    "recorded_rolling100": 0.5025000075995922,
+    "pair_saved_together": true
+  },
+  {
+    "training_seed": 33,
+    "selection": {
+      "selection": "first_complete_rolling100_ge_0.5",
+      "episode": 1222,
+      "rolling100": 0.5045000075362622
+    },
+    "environment_steps": 54761,
+    "checkpoint_sha256": "31726ce6c96d79cf6ae42cfbf37f5bba6dc092cadaf63ca5b044e59c67f3009c",
+    "recorded_rolling100": 0.5045000075362622,
+    "pair_saved_together": true
+  }
+]

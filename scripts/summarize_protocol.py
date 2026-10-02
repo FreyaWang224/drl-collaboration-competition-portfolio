@@ -44,6 +44,14 @@ for seed in p['training_seeds']:
         raise ValueError('Evaluation seed mismatch')
     if evaluation_summary['learning_rounds_during_evaluation'] != 0:
         raise ValueError('Evaluation learned')
+    for evaluation_seed in p['evaluation_seeds']:
+        child = evaluation/f'seed_{evaluation_seed}'
+        child_summary = json.loads((child/'summary.json').read_text())
+        child_manifest = json.loads((child/'manifest.json').read_text())
+        if child_summary['learning_rounds_during_evaluation'] != 0:
+            raise ValueError('Child evaluation learned')
+        if child_manifest['checkpoint_sha256'] != manifest['checkpoint_sha256']:
+            raise ValueError('Child evaluated a different checkpoint')
     scores = [r['score'] for r in eval_records]
     if evaluation_summary['all_complete']:
         if not np.isclose(np.mean(scores), evaluation_summary['mean_score'], atol=1e-9):

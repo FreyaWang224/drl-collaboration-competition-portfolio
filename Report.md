@@ -2,7 +2,7 @@
 
 ## Scope and status
 
-This project implements two independent DDPG agents for Udacity's supplied Tennis environment. It investigates a simple local-critic baseline before introducing centralized critics. The baseline is **not MADDPG**. Implementation checks and real development pilots are complete. Confirmatory three-seed training and independent evaluation are in progress; the numbers below are explicitly development data.
+This project implements two independent DDPG agents for Udacity's supplied Tennis environment. It investigates a simple local-critic baseline before introducing centralized critics. The baseline is **not MADDPG**. Implementation checks and real development pilots are complete. Confirmatory three-seed training is complete and independent evaluation is in progress; the numbers below are explicitly development data.
 
 ## Problem
 
@@ -59,7 +59,11 @@ PROTOCOL.json was committed before launching seeds 11,22,33. Each run has at mos
 
 Each frozen model is evaluated on 30 predeclared Unity seeds 20001-20030, in separate processes, without exploration or learning. The same evaluation seed set is used for each model to align initial-condition comparisons; it is disjoint from training and development evaluation seeds. Any truncated evaluation prevents reporting a complete aggregate mean. Across models we report the mean and population SD of the three per-model evaluation means. This is not a confidence interval or significance test.
 
-**No final confirmatory result is reported yet.**
+All three training seeds reached the threshold: first qualifying endpoints 1282 / 1473 / 1222 at 46624 / 49322 / 54761 environment steps. Each ran its full 200000-step budget and ended with one external budget truncation. This is training evidence, not independent evaluation.
+
+Evaluation orchestration was changed to run models concurrently. Ending the original coordinator also caused its evaluator subprocess to be cleaned up by the execution tool. The first 10 complete seed-11 evaluation episodes were retained, the incomplete attempt directory was archived, and only the remaining predeclared seeds were resumed using the unchanged checkpoint hash. This infrastructure interruption is not a score-based retry or seed replacement.
+
+**No final independent evaluation result is reported yet.**
 
 ## Limitations and next questions
 

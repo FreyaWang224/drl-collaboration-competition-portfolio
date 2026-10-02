@@ -2,7 +2,7 @@
 
 A from-scratch, two-agent continuous-control project for Udacity's supplied Unity Tennis environment. The published baseline uses separate actors and **local** critics. The MADDPG extension uses local actors and separate centralized critics conditioned on both agents. Both algorithms use synchronized joint replay.
 
-**Status:** baseline implementation and experiments complete; MADDPG implementation added; 29 total tests pass; real Unity smoke test complete; two development pilots retained. The longer pilot reached the course training threshold. Three predeclared independent training runs and 30 evaluation episodes per model are complete. See Report.md and artifacts/baseline_results.json for the verified measurements.
+**Status:** independent DDPG and MADDPG implementations and formal experiments complete; 29 tests pass. Each algorithm has three predeclared training seeds and 30 independent evaluation episodes per selected model. See [Report.md](Report.md) for baseline evidence and [MADDPG_REPORT.md](MADDPG_REPORT.md) for the measured comparison. Development pilots are excluded from formal statistics.
 
 ## Task and verified environment
 
@@ -68,7 +68,7 @@ Resume material stays local under ignored `resume/`. Previous project repositori
 - [Course index](https://learn-udacity.top/udrl597102/Deep%20Reinforcement%20Learning%20Nanodegree%20v5.0.0/index.html)
 - [Official project and downloads](https://github.com/udacity/deep-reinforcement-learning/tree/master/p3_collab-compet)
 - [Official API package version](https://github.com/udacity/deep-reinforcement-learning/blob/master/python/setup.py)
-- [MADDPG paper, for the possible later centralized-critic comparison](https://arxiv.org/abs/1706.02275)
+- [MADDPG paper](https://arxiv.org/abs/1706.02275)
 
 ## MADDPG extension
 
@@ -80,8 +80,8 @@ Resume material stays local under ignored `resume/`. Previous project repositori
   --seed 0 --worker-id 50 --episodes 1000 --max-environment-steps 50000 \
   --warmup-steps 10000
 
-# Planned matched-budget protocol; separate output paths protect baseline evidence
+# Matched-budget protocol; separate output paths protect baseline evidence
 .venv/bin/python scripts/run_protocol.py --protocol PROTOCOL_MADDPG.json
 ```
 
-Formal MADDPG experiments are complete; see [MADDPG_REPORT.md](MADDPG_REPORT.md). Its pilot remains development evidence only. The planned comparison keeps hidden widths and sampling budgets the same; centralized critics have more input parameters, so compute and parameter counts must also be reported. Baseline evidence is preserved under the `baseline-v1` tag.
+Formal MADDPG experiments are complete; see [MADDPG_REPORT.md](MADDPG_REPORT.md). Its pilot remains development evidence only. The completed comparison keeps hidden widths and sampling budgets the same; centralized critics have more input parameters, so compute and parameter counts must also be reported. Baseline evidence is preserved under the `baseline-v1` tag.

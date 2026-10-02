@@ -23,3 +23,30 @@ Compute costs and single-episode training maxima are recorded separately in the 
 ![MADDPG training seed 11](artifacts/maddpg_seed11/training_curve.png)
 ![MADDPG training seed 22](artifacts/maddpg_seed22/training_curve.png)
 ![MADDPG training seed 33](artifacts/maddpg_seed33/training_curve.png)
+
+## Sampling efficiency and interpretation
+
+| Training seed | Independent DDPG first qualifying environment step | MADDPG first qualifying environment step |
+|---|---:|---:|
+| 11 | 46624 | 50011 |
+| 22 | 49322 | 62760 |
+| 33 | 54761 | 39320 |
+
+![Training aligned by environment steps](artifacts/comparison_training_steps.png)
+
+Episode counts are not equal sampling budgets: better rallies can make episodes longer. These curves retain each run separately and show training rolling-100, not evaluation.
+
+![Frozen-model evaluation distribution](artifacts/comparison_evaluation.png)
+
+Faint dots are actual evaluation episodes; diamonds are per-model means. No confidence-interval error bars are shown. The same evaluation seed list is used across models; the 90 episodes for an algorithm must not be treated as 90 independent training runs.
+
+| Online network parameters (two agents) | Independent DDPG | MADDPG |
+|---|---:|---:|
+| Actors | 39940 | 39940 |
+| Critics | 40194 | 46850 |
+
+Target networks duplicate the corresponding online architectures. More centralized-critic parameters and concurrently executed jobs limit parameter/compute claims. Observed runtime is logged, not a speed superiority test.
+
+A complete evaluation episode here ends on legacy `local_done`; this API does not prove whether that signal represents true termination or an internal time limit. External caps are separately recorded. Cross-play and partner generalization have not been tested.
+
+Under this frozen protocol, the observed MADDPG across-model evaluation mean is higher than independent DDPG (1.559000 versus 1.284667). This describes the measured models; three training seeds and unequal critic parameter counts do not establish general or statistically significant superiority.

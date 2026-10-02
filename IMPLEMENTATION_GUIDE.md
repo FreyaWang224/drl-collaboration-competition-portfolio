@@ -19,7 +19,17 @@ Read modules in this order when returning to the project. Exercises and grading 
 
 **Why start with independent DDPG?** It gives a simple local-critic reference. A centralized-critic comparison should answer a specific question after checking interface, gradient and exploration failures.
 
-**Is shared replay MADDPG?** No. This baseline stores joint transitions but each critic only uses its own agent's observation/action. MADDPG would condition critics on joint information while keeping execution local.
+**Is shared replay MADDPG?** No. This baseline stores joint transitions but each critic only uses its own agent's observation/action. The implemented MADDPG conditions each critic on joint observations/actions while keeping execution local.
+
+## Reading the MADDPG implementation
+
+Read `maddpg.py` after the baseline learning update. `critic_dimensions` expands the critic inputs to joint observations `[B,48]` and joint actions `[B,4]`; the actors remain local `[B,24] -> [B,2]`. `critic_targets` uses both target actors, each agent's own reward, and that agent's terminal mask. Both targets are computed before any target-network update.
+
+For agent i, the target is `y_i = r_i + gamma * (1-d_i) * Q_i_target(next_joint_obs, next_joint_target_actions)`. Here B is minibatch size; reward, terminal mask, Q and y all have shape `[B,1]`. The target branch uses `torch.no_grad()` because it supplies a regression label.
+
+`actor_loss` replaces agent i's replay action with its current actor output and holds the partner's executed replay action fixed. Its scalar loss is `-mean(Q_i(joint_obs, own_current_action + partner_replay_action))`, where `+` denotes concatenation in canonical agent order. In `learn`, critic parameters are frozen while this loss backpropagates through the current action to actor i. Using `no_grad()` for this critic forward pass would destroy that actor gradient.
+
+**How should the algorithms be compared?** Compare first qualification in joint environment steps as well as episodes, then compare separately measured frozen-model evaluations. An episode is longer when rallies last longer, so episode count alone is not a sampling budget. The same hidden widths do not imply equal parameter counts: the centralized critics add 6,656 input-layer parameters across the two critics. Three training seeds support descriptive results, not a statistical superiority claim.
 
 **What is actually measured?** Training rolling-100 qualifies the course criterion. Frozen-policy evaluation measures a selected model separately. Population SD across independent training-model means describes between-run variation; it is not a confidence interval.
 

@@ -1,0 +1,6 @@
+{
+  "environment_url": "https://s3-us-west-1.amazonaws.com/udacity-drlnd/P3/Tennis/Tennis.app.zip",
+  "archive_sha256": "03a6e851298433fd693b0842c981e62ef563fbf78ceeee73e058747351d3c3de",
+  "legacy_source_commit": "561eec3ae8678a23a4557f1a15414a9b076fdfff",
+  "files": 28
+}

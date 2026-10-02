@@ -1,0 +1,40 @@
+{
+  "mode": "evaluate",
+  "args": {
+    "mode": "evaluate",
+    "environment": "environments/Tennis.app",
+    "output": "runs/pilot_diagnostic_eval_seed0",
+    "seed": 0,
+    "worker_id": 10,
+    "episodes": 10,
+    "max_steps": 10000,
+    "max_environment_steps": 1000000,
+    "checkpoint": "runs/pilot_seed0/final.pt",
+    "evaluation_seeds": [
+      10001,
+      10002,
+      10003,
+      10004,
+      10005
+    ],
+    "graphics": false,
+    "hidden": 128,
+    "batch_size": 128,
+    "warmup_steps": 1000,
+    "noise_std": 0.2
+  },
+  "python": "3.9.6",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "architecture": "arm64",
+  "torch": "2.8.0",
+  "numpy": "2.0.2",
+  "binaries": [
+    {
+      "path": "/Users/freya/drl-collaboration-competition-portfolio/environments/Tennis.app/Contents/MacOS/Tennis",
+      "sha256": "6811730d75a8130daa145ca21dd0a2c0f4995f7dcd55f1f891c6318629adfa4b"
+    }
+  ],
+  "algorithm": "independent_ddpg",
+  "terminal_policy": "Raw legacy local_done treated as terminal; internal timeout not distinguishable",
+  "observation_roles": "reset row order defines policy roles; intra-episode rows aligned by IDs"
+}

@@ -1,0 +1,15 @@
+{
+  "training_seed": 0,
+  "checkpoint_metadata": {
+    "selection": "final",
+    "episode": 300,
+    "first_solved": null
+  },
+  "requested_episodes": 5,
+  "truncated_episodes": 0,
+  "mean_score": 0.04000000059604645,
+  "within_model_population_sd": 0.04898979558566839,
+  "all_complete": true,
+  "learning_rounds_during_evaluation": 0,
+  "elapsed_seconds": 25.068991958
+}

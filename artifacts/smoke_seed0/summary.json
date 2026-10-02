@@ -1,0 +1,24 @@
+{
+  "config": {
+    "observation_size": 24,
+    "hidden": 128,
+    "batch_size": 128,
+    "capacity": 100000,
+    "gamma": 0.99,
+    "tau": 0.005,
+    "actor_lr": 0.0001,
+    "critic_lr": 0.001,
+    "noise_std": 0.2,
+    "warmup_steps": 1000,
+    "learn_every": 1,
+    "updates_per_event": 1
+  },
+  "seed": 0,
+  "episodes": 3,
+  "first_solved": null,
+  "environment_steps": 60,
+  "learning_rounds": 0,
+  "truncated_episodes": 0,
+  "random_policy_audit": true,
+  "elapsed_seconds": 12.6264575
+}

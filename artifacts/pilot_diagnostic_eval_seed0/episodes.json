@@ -1,0 +1,95 @@
+{
+  "kind": "pilot",
+  "records": [
+    {
+      "agent_returns": [
+        0.10000000149011612,
+        -0.009999999776482582
+      ],
+      "score": 0.10000000149011612,
+      "steps": 31,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.12096774193548387,
+      "diagnostics": [],
+      "evaluation_seed": 10001,
+      "training_seed": 0
+    },
+    {
+      "agent_returns": [
+        0.0,
+        -0.009999999776482582
+      ],
+      "score": 0.0,
+      "steps": 15,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.1,
+      "diagnostics": [],
+      "evaluation_seed": 10002,
+      "training_seed": 0
+    },
+    {
+      "agent_returns": [
+        0.0,
+        -0.009999999776482582
+      ],
+      "score": 0.0,
+      "steps": 15,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.08333333333333333,
+      "diagnostics": [],
+      "evaluation_seed": 10003,
+      "training_seed": 0
+    },
+    {
+      "agent_returns": [
+        0.0,
+        -0.009999999776482582
+      ],
+      "score": 0.0,
+      "steps": 15,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.08333333333333333,
+      "diagnostics": [],
+      "evaluation_seed": 10004,
+      "training_seed": 0
+    },
+    {
+      "agent_returns": [
+        0.10000000149011612,
+        -0.009999999776482582
+      ],
+      "score": 0.10000000149011612,
+      "steps": 30,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.11666666666666667,
+      "diagnostics": [],
+      "evaluation_seed": 10005,
+      "training_seed": 0
+    }
+  ]
+}

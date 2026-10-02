@@ -1,5 +1,6 @@
 """Validate frozen protocol evidence, export models and aggregate real evals."""
 import hashlib
+import argparse
 import json
 from pathlib import Path
 import shutil
@@ -8,11 +9,15 @@ import sys
 import numpy as np
 
 root = Path(__file__).resolve().parents[1]
-p = json.loads((root / 'PROTOCOL.json').read_text())
+parser = argparse.ArgumentParser()
+parser.add_argument('--protocol', type=Path, default=root/'PROTOCOL.json')
+args = parser.parse_args()
+p = json.loads(args.protocol.read_text())
+prefix = 'baseline' if p['algorithm'] == 'independent_ddpg' else 'maddpg'
 rows = []
 for seed in p['training_seeds']:
-    training = root/'runs'/f'baseline_seed{seed}'
-    evaluation = root/'runs'/f'baseline_eval_seed{seed}'
+    training = root/'runs'/f'{prefix}_seed{seed}'
+    evaluation = root/'runs'/f'{prefix}_eval_seed{seed}'
     summary = json.loads((training/'summary.json').read_text())
     evaluation_summary = json.loads((evaluation/'summary.json').read_text())
     if {k: summary['config'][k] for k in p['config']} != p['config']:
@@ -56,11 +61,11 @@ for seed in p['training_seeds']:
     if evaluation_summary['all_complete']:
         if not np.isclose(np.mean(scores), evaluation_summary['mean_score'], atol=1e-9):
             raise ValueError('Evaluation mean mismatch')
-    for run in [f'baseline_seed{seed}', f'baseline_eval_seed{seed}']:
+    for run in [f'{prefix}_seed{seed}', f'{prefix}_eval_seed{seed}']:
         subprocess.run([sys.executable, str(root/'scripts/export_results.py'), run, '--kind', 'formal'], check=True)
     weights = root/'artifacts'/'models'
     weights.mkdir(exist_ok=True)
-    shutil.copyfile(selected, weights/f'baseline_seed{seed}.pt')
+    shutil.copyfile(selected, weights/f'{prefix}_seed{seed}.pt')
     rows.append(dict(seed=seed, first_solved_episode=first,
                      first_solved_environment_step=records[first-1]['environment_steps'] if first is not None else None,
                      complete_training_episodes=sum(r['complete'] for r in records),
@@ -78,5 +83,5 @@ means = [r['evaluation_mean'] for r in rows]
 result = dict(protocol=p, seeds=rows, across_training_seed_evaluation_mean=float(np.mean(means)) if None not in means else None,
               across_training_seed_population_sd=float(np.std(means)) if None not in means else None,
               inference='Descriptive population SD of three model means, not CI or significance')
-(root/'artifacts'/'baseline_results.json').write_text(json.dumps(result, indent=2))
+(root/'artifacts'/f'{prefix}_results.json').write_text(json.dumps(result, indent=2))
 print(json.dumps(result, indent=2))

@@ -1,0 +1,41 @@
+{
+  "mode": "train",
+  "args": {
+    "mode": "train",
+    "environment": "environments/Tennis.app",
+    "output": "runs/maddpg_pilot_seed0",
+    "algorithm": "maddpg",
+    "seed": 0,
+    "worker_id": 50,
+    "episodes": 1000,
+    "max_steps": 10000,
+    "max_environment_steps": 50000,
+    "checkpoint": null,
+    "evaluation_seeds": null,
+    "graphics": false,
+    "hidden": 128,
+    "batch_size": 128,
+    "warmup_steps": 10000,
+    "noise_std": 0.2
+  },
+  "python": "3.9.6",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "architecture": "arm64",
+  "torch": "2.8.0",
+  "numpy": "2.0.2",
+  "binaries": [
+    {
+      "path": "/Users/freya/drl-collaboration-competition-portfolio/environments/Tennis.app/Contents/MacOS/Tennis",
+      "sha256": "6811730d75a8130daa145ca21dd0a2c0f4995f7dcd55f1f891c6318629adfa4b"
+    }
+  ],
+  "algorithm": "maddpg",
+  "source_revision": "9fd032894942e8983054f0f40dcb88584ca726ff",
+  "checkpoint_sha256": null,
+  "terminal_policy": "Raw legacy local_done treated as terminal; internal timeout not distinguishable",
+  "observation_roles": "reset row order defines policy roles; intra-episode rows aligned by IDs",
+  "base_observation_size": 8,
+  "stacks": 3,
+  "observation_size": 24,
+  "action_size": 2
+}

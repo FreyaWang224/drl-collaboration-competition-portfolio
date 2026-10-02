@@ -1,8 +1,8 @@
-# Collaboration and Competition — Independent DDPG
+# Collaboration and Competition — Independent DDPG and MADDPG
 
-A from-scratch, two-agent continuous-control baseline for Udacity's supplied Unity Tennis environment. Each agent has its own actor and **local** critic. Synchronized replay storage is shared; this is independent DDPG, not MADDPG.
+A from-scratch, two-agent continuous-control project for Udacity's supplied Unity Tennis environment. The published baseline uses separate actors and **local** critics. The MADDPG extension uses local actors and separate centralized critics conditioned on both agents. Both algorithms use synchronized joint replay.
 
-**Status:** implementation and 21 tests complete; real Unity smoke test complete; two development pilots retained. The longer pilot reached the course training threshold. Three predeclared independent training runs and 30 evaluation episodes per model are complete. See Report.md and artifacts/baseline_results.json for the verified measurements.
+**Status:** baseline implementation and experiments complete; MADDPG implementation added; 29 total tests pass; real Unity smoke test complete; two development pilots retained. The longer pilot reached the course training threshold. Three predeclared independent training runs and 30 evaluation episodes per model are complete. See Report.md and artifacts/baseline_results.json for the verified measurements.
 
 ## Task and verified environment
 
@@ -69,3 +69,19 @@ Resume material stays local under ignored `resume/`. Previous project repositori
 - [Official project and downloads](https://github.com/udacity/deep-reinforcement-learning/tree/master/p3_collab-compet)
 - [Official API package version](https://github.com/udacity/deep-reinforcement-learning/blob/master/python/setup.py)
 - [MADDPG paper, for the possible later centralized-critic comparison](https://arxiv.org/abs/1706.02275)
+
+## MADDPG extension
+
+`src/tennis/maddpg.py` adds centralized critics with 48 observation inputs and 4 action inputs; actors still receive 24 local inputs. Each critic predicts its own agent return. Target actions come from both target actors. During actor i's update, replace its replay action with its current actor output and keep the partner's replay action fixed. Critic parameters are frozen, with gradients preserved through the current actor's action.
+
+```bash
+.venv/bin/python -m tennis.cli train --algorithm maddpg \
+  --environment environments/Tennis.app --output runs/my_maddpg_pilot \
+  --seed 0 --worker-id 50 --episodes 1000 --max-environment-steps 50000 \
+  --warmup-steps 10000
+
+# Planned matched-budget protocol; separate output paths protect baseline evidence
+.venv/bin/python scripts/run_protocol.py --protocol PROTOCOL_MADDPG.json
+```
+
+MADDPG performance is not yet established. Its pilot is development evidence only. The planned comparison keeps hidden widths and sampling budgets the same; centralized critics have more input parameters, so compute and parameter counts must also be reported. Baseline evidence is preserved under the `baseline-v1` tag.

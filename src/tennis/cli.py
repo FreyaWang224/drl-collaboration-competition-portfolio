@@ -11,6 +11,7 @@ import time
 import numpy as np
 import torch
 from .core import Config, IndependentDDPG
+from .maddpg import MADDPG
 from .environment import TennisEnvironment
 from .metrics import ScoreWindow
 
@@ -73,6 +74,7 @@ def main():
     parser.add_argument('mode', choices=['smoke', 'train', 'evaluate'])
     parser.add_argument('--environment', required=True)
     parser.add_argument('--output', type=Path, required=True)
+    parser.add_argument('--algorithm', choices=['independent_ddpg', 'maddpg'], default='independent_ddpg')
     parser.add_argument('--seed', type=int, default=0)
     parser.add_argument('--worker-id', type=int, default=0)
     parser.add_argument('--episodes', type=int, default=10)
@@ -100,7 +102,7 @@ def main():
     manifest = dict(mode=args.mode, args={k: str(v) if isinstance(v, Path) else v for k, v in vars(args).items()},
                     python=platform.python_version(), platform=platform.platform(), architecture=platform.machine(),
                     torch=torch.__version__, numpy=np.__version__, binaries=binary_manifest(args.environment),
-                    algorithm='independent_ddpg',
+                    algorithm=args.algorithm,
                     source_revision=subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip(),
                     checkpoint_sha256=hashlib.sha256(args.checkpoint.read_bytes()).hexdigest() if args.checkpoint else None,
                     terminal_policy='Raw legacy local_done treated as terminal; internal timeout not distinguishable',
@@ -109,6 +111,8 @@ def main():
     records = []
     if args.mode == 'evaluate':
         agent, metadata = IndependentDDPG.load(args.checkpoint)
+        manifest['algorithm'] = agent.algorithm
+        write_json(args.output / 'manifest.json', manifest)
         before = agent.learning_rounds
         for seed in args.evaluation_seeds:
             if len(args.evaluation_seeds) > 1:
@@ -148,7 +152,8 @@ def main():
             write_json(args.output / 'manifest.json', manifest)
             config = Config(env.observation_size, hidden=args.hidden, batch_size=args.batch_size,
                             warmup_steps=args.warmup_steps, noise_std=args.noise_std)
-            agent = IndependentDDPG(config, args.seed)
+            agent_class = MADDPG if args.algorithm == 'maddpg' else IndependentDDPG
+            agent = agent_class(config, args.seed)
             window = ScoreWindow()
             first_solved = None
             interaction_steps = 0
@@ -178,7 +183,7 @@ def main():
             if args.mode == 'train':
                 agent.save(args.output / 'final.pt', metadata=dict(selection='final', episode=len(records), first_solved=first_solved))
                 agent.save(args.output / 'training_state.pt', metadata=dict(episode=len(records), simulator_state_restored=False), full=True)
-            summary = dict(config=asdict(config), seed=args.seed, episodes=len(records),
+            summary = dict(algorithm=agent.algorithm, config=asdict(config), seed=args.seed, episodes=len(records),
                            first_solved=first_solved, environment_steps=interaction_steps,
                            learning_rounds=agent.learning_rounds, truncated_episodes=sum(r['truncated'] for r in records),
                            random_policy_audit=args.mode == 'smoke')

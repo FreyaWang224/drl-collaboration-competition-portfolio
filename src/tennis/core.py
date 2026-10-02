@@ -55,9 +55,9 @@ class Actor(nn.Module):
 
 
 class Critic(nn.Module):
-    def __init__(self, d, h):
+    def __init__(self, d, h, action_size=2):
         super().__init__()
-        self.net = nn.Sequential(nn.Linear(d + 2, h), nn.ReLU(), nn.Linear(h, h),
+        self.net = nn.Sequential(nn.Linear(d + action_size, h), nn.ReLU(), nn.Linear(h, h),
                                  nn.ReLU(), nn.Linear(h, 1))
         nn.init.uniform_(self.net[-1].weight, -0.003, 0.003)
         nn.init.uniform_(self.net[-1].bias, -0.003, 0.003)
@@ -126,14 +126,21 @@ class Replay:
 
 
 class IndependentDDPG:
+    algorithm = 'independent_ddpg'
+
+    @staticmethod
+    def critic_dimensions(observation_size):
+        return observation_size, 2
+
     def __init__(self, config, seed):
         self.config, self.seed = config, seed
         seed_all(seed)
         self.rng = np.random.default_rng(seed)
         self.actors = [Actor(config.observation_size, config.hidden) for _ in range(2)]
-        self.critics = [Critic(config.observation_size, config.hidden) for _ in range(2)]
+        critic_d, critic_a = self.critic_dimensions(config.observation_size)
+        self.critics = [Critic(critic_d, config.hidden, critic_a) for _ in range(2)]
         self.target_actors = [Actor(config.observation_size, config.hidden) for _ in range(2)]
-        self.target_critics = [Critic(config.observation_size, config.hidden) for _ in range(2)]
+        self.target_critics = [Critic(critic_d, config.hidden, critic_a) for _ in range(2)]
         for targets, online in [(self.target_actors, self.actors), (self.target_critics, self.critics)]:
             for target, source in zip(targets, online):
                 target.load_state_dict(source.state_dict())
@@ -200,7 +207,7 @@ class IndependentDDPG:
         return diagnostics
 
     def save(self, path, *, metadata, full=False):
-        state = dict(format_version=1, algorithm='independent_ddpg', config=asdict(self.config),
+        state = dict(format_version=1, algorithm=self.algorithm, config=asdict(self.config),
                      seed=self.seed, metadata=metadata, full=full,
                      environment_steps=self.environment_steps, learning_rounds=self.learning_rounds,
                      actors=[a.state_dict() for a in self.actors])
@@ -222,8 +229,13 @@ class IndependentDDPG:
     def load(cls, path, *, resume=False):
         # Only load trusted local files; full checkpoints contain Python objects.
         state = torch.load(path, map_location='cpu', weights_only=False)
-        if state.get('format_version') != 1 or state.get('algorithm') != 'independent_ddpg':
-            raise ValueError('Unsupported checkpoint')
+        if state.get('format_version') != 1:
+            raise ValueError('Unsupported checkpoint version')
+        if state.get('algorithm') != cls.algorithm:
+            if cls is IndependentDDPG and state.get('algorithm') == 'maddpg':
+                from .maddpg import MADDPG
+                return MADDPG.load(path, resume=resume)
+            raise ValueError('Unsupported checkpoint algorithm')
         agent = cls(Config(**state['config']), state['seed'])
         for model, weights in zip(agent.actors, state['actors']):
             model.load_state_dict(weights)

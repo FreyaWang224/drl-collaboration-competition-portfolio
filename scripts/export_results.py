@@ -38,7 +38,7 @@ if 'first_solved' in summary and args.kind != 'smoke':
         ax.scatter([r['episode'] for r in truncated], [r['score'] for r in truncated],
                    marker='x', color='#b43d3d', label='Partial score at external truncation')
     ax.set(xlabel='Training episode', ylabel='Max of undiscounted agent returns',
-           title=f'{args.kind.title()} — seed {summary["seed"]} — independent DDPG')
+           title=f'{args.kind.title()} — seed {summary["seed"]} — {summary.get("algorithm", "independent_ddpg")}')
     ax.legend(fontsize=8, loc='upper left')
     ax.grid(alpha=0.15)
     fig.tight_layout()

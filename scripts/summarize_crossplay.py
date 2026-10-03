@@ -97,6 +97,13 @@ lines+=['',f'Diagonal mean: **{fmt(result["diagonal_mean"])}**. Off-diagonal mea
         'Signed self-play gap = row diagonal mean minus cell mean: positive means the fixed actor-0 policy performs worse in the joint score when paired with the new actor-1 partner. This is a descriptive joint outcome, not evidence assigning blame to a particular actor. Reverse pairings are different experiments.', '',
         'All cell-level episode records and source checkpoint hashes are retained. External truncation withholds a cell aggregate. Local_done still cannot distinguish internal timeout from true termination. The maximum-agent score can conceal individual return differences, hence both returns are reported.', '',
         'Six off-diagonal cells share the same three trained actor pairs and use aligned environment seeds; they are not six independent training runs. No confidence interval, statistical significance, arbitrary-partner generalization, or causal claim about centralized training is made. These data do not tune or select the original checkpoints.', '']
+off=[c for c in cells if not c['diagonal_reused']]
+if all(c['signed_self_play_gap'] is not None for c in off):
+    worse=sum(c['signed_self_play_gap']>0 for c in off)
+    better=sum(c['signed_self_play_gap']<0 for c in off)
+    lines += ['## Observed partner-change outcomes', '',
+              f'Compared with each row actor-0 policy’s original partner, {worse} of six new pairings had a lower mean joint score, {better} had a higher mean, and {6-worse-better} were equal. These are observed cell comparisons, not independent replications or a significance test.', '',
+              'Lower cells indicate a measured cost of changing partners in this evaluated set; higher or similar cells show compatibility only within these specific actor roles, training seeds and initial conditions. No conclusion about arbitrary unseen partners follows.', '']
 (root/'CROSSPLAY_REPORT.md').write_text('\n'.join(lines)+'\n')
 readme=root/'README.md'
 text=readme.read_text()

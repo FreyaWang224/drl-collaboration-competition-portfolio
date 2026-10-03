@@ -2,7 +2,7 @@
 
 A from-scratch, two-agent continuous-control project for Udacity's supplied Unity Tennis environment. The published baseline uses separate actors and **local** critics. The MADDPG extension uses local actors and separate centralized critics conditioned on both agents. Both algorithms use synchronized joint replay.
 
-**Status:** independent DDPG and MADDPG implementations and formal experiments complete; 29 tests pass. Each algorithm has three predeclared training seeds and 30 independent evaluation episodes per selected model. See [Report.md](Report.md) for baseline evidence and [MADDPG_REPORT.md](MADDPG_REPORT.md) for the measured comparison. Development pilots are excluded from formal statistics.
+**Status:** independent DDPG and MADDPG implementations and formal experiments complete; 33 tests pass (29 algorithm/runtime tests and 4 actor-only cross-play tests). Each algorithm has three predeclared training seeds and 30 independent evaluation episodes per selected model. See [Report.md](Report.md) for baseline evidence and [MADDPG_REPORT.md](MADDPG_REPORT.md) for the measured comparison. Development pilots are excluded from formal statistics.
 
 ## Task and verified environment
 
@@ -93,3 +93,13 @@ This user-recorded, unedited excerpt shows the paired MADDPG actors from trainin
 ```
 
 Formal MADDPG experiments are complete; see [MADDPG_REPORT.md](MADDPG_REPORT.md). Its pilot remains development evidence only. The completed comparison keeps hidden widths and sampling budgets the same; centralized critics have more input parameters, so compute and parameter counts must also be reported. Baseline evidence is preserved under the `baseline-v1` tag.
+
+## Cross-play protocol (exploratory)
+
+`PROTOCOL_CROSSPLAY.json` freezes a role-preserving 3 x 3 MADDPG matrix. Rows provide actor 0, columns actor 1. The three diagonal cells reuse the verified original-pair evaluations. Six off-diagonal pairs each run 30 new Unity-process episodes on evaluation seeds 20001-20030, with frozen actors, no critics or optimizers, and no exploration. Failures and truncations are retained; cross-play is excluded from the original confirmatory algorithm comparison.
+
+```bash
+.venv/bin/python scripts/run_crossplay.py
+```
+
+The runner creates a new `runs/crossplay` directory, evaluates at most three pairs concurrently, validates records, and publishes an exploratory report only after actual completion. Output paths cannot silently overwrite earlier runs. Six off-diagonal pairings share actors and are not six independent training seeds.

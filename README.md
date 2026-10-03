@@ -63,6 +63,14 @@ Legacy `local_done` does not distinguish true terminal states from internal Unit
 
 Resume material stays local under ignored `resume/`. Previous project repositories are not reused or modified. Public repository: https://github.com/FreyaWang224/drl-collaboration-competition-portfolio.
 
+## Unity demonstration
+
+[Watch/download the 19.91-second MADDPG demo](artifacts/tennis_maddpg_demo.mov)
+
+![Unity Tennis demonstration preview](artifacts/tennis_demo_preview.png)
+
+This user-recorded, unedited excerpt shows the paired MADDPG actors from training seed 11, selected at the first qualifying training window, running with graphics on rollout seed 30001. Exploration and learning are disabled. The video is an **excerpt**, not a complete episode or an estimate of average performance, and is excluded from all formal evaluation statistics. Video dimensions are 1504 x 1000; metadata and SHA256 are recorded in `artifacts/tennis_demo_metadata.json`.
+
 ## Sources
 
 - [Course index](https://learn-udacity.top/udrl597102/Deep%20Reinforcement%20Learning%20Nanodegree%20v5.0.0/index.html)

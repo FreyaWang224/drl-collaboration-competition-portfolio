@@ -1,0 +1,17 @@
+{
+  "kind": "demonstration_excerpt",
+  "duration_seconds": 19.91,
+  "width": 1504,
+  "height": 1000,
+  "video_sha256": "d8176c2439e7fb0addc33e6069dddae2edd8150d5a21c3468783c22cc24b2590",
+  "video_bytes": 4607026,
+  "algorithm": "maddpg",
+  "training_seed": 11,
+  "rollout_seed": 30001,
+  "checkpoint_sha256": "de34de21a4ac221b5f25d62b2dbe1720ee34c686b42d6c6f439aeffd8c4bf996",
+  "checkpoint_selection": "first qualifying training rolling-100",
+  "exploration": false,
+  "learning": false,
+  "included_in_formal_evaluation": false,
+  "limitation": "Excerpt only; does not establish a full episode score or average performance. Separate rendered rollout evidence is exported only if it finishes."
+}

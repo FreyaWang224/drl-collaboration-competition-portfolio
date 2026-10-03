@@ -50,3 +50,7 @@ Target networks duplicate the corresponding online architectures. More centraliz
 A complete evaluation episode here ends on legacy `local_done`; this API does not prove whether that signal represents true termination or an internal time limit. External caps are separately recorded. Cross-play and partner generalization have not been tested.
 
 Under this frozen protocol, the observed MADDPG across-model evaluation mean is higher than independent DDPG (1.559000 versus 1.284667). This describes the measured models; three training seeds and unequal critic parameter counts do not establish general or statistically significant superiority.
+
+## Rendered demonstration
+
+A user-recorded [19.91-second Unity excerpt](artifacts/tennis_maddpg_demo.mov) shows the frozen seed-11 paired policy, without exploration or learning. It is separate from the predeclared evaluations and does not represent the complete rollout or average performance. `artifacts/tennis_demo_metadata.json` records the video and model hashes.

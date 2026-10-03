@@ -1,0 +1,17 @@
+{
+  "actor0_seed": 11,
+  "actor1_seed": 22,
+  "diagonal_reused": false,
+  "episodes": 30,
+  "external_truncations": 0,
+  "mean_score": 2.3930000356708963,
+  "within_cell_population_sd": 0.6382953956533098,
+  "mean_agent_returns": [
+    2.3793333688129983,
+    2.3930000356708963
+  ],
+  "checkpoint_sha256": [
+    "de34de21a4ac221b5f25d62b2dbe1720ee34c686b42d6c6f439aeffd8c4bf996",
+    "39f726a93e04c6ae70117be83ef6e80670e8a72058a58b98d47ef1ce4af61fa4"
+  ]
+}

@@ -1,0 +1,635 @@
+{
+  "kind": "exploratory_post_training_analysis",
+  "records": [
+    {
+      "agent_returns": [
+        0.9000000134110451,
+        0.7900000121444464
+      ],
+      "score": 0.9000000134110451,
+      "steps": 348,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.6063218390804598,
+      "diagnostics": [],
+      "actor_training_seeds": [
+        22,
+        33
+      ],
+      "evaluation_seed": 20001
+    },
+    {
+      "agent_returns": [
+        2.1000000312924385,
+        1.9900000300258398
+      ],
+      "score": 2.1000000312924385,
+      "steps": 805,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.6065217391304348,
+      "diagnostics": [],
+      "actor_training_seeds": [
+        22,
+        33
+      ],
+      "evaluation_seed": 20002
+    },
+    {
+      "agent_returns": [
+        0.9000000134110451,
+        0.7900000121444464
+      ],
+      "score": 0.9000000134110451,
+      "steps": 336,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.6227678571428571,
+      "diagnostics": [],
+      "actor_training_seeds": [
+        22,
+        33
+      ],
+      "evaluation_seed": 20003
+    },
+    {
+      "agent_returns": [
+        0.0,
+        0.09000000171363354
+      ],
+      "score": 0.09000000171363354,
+      "steps": 30,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.6333333333333333,
+      "diagnostics": [],
+      "actor_training_seeds": [
+        22,
+        33
+      ],
+      "evaluation_seed": 20004
+    },
+    {
+      "agent_returns": [
+        0.10000000149011612,
+        0.09000000171363354
+      ],
+      "score": 0.10000000149011612,
+      "steps": 52,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.5817307692307693,
+      "diagnostics": [],
+      "actor_training_seeds": [
+        22,
+        33
+      ],
+      "evaluation_seed": 20005
+    },
+    {
+      "agent_returns": [
+        0.0,
+        0.09000000171363354
+      ],
+      "score": 0.09000000171363354,
+      "steps": 30,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.6333333333333333,
+      "diagnostics": [],
+      "actor_training_seeds": [
+        22,
+        33
+      ],
+      "evaluation_seed": 20006
+    },
+    {
+      "agent_returns": [
+        0.4000000059604645,
+        0.2900000046938658
+      ],
+      "score": 0.4000000059604645,
+      "steps": 148,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.6081081081081081,
+      "diagnostics": [],
+      "actor_training_seeds": [
+        22,
+        33
+      ],
+      "evaluation_seed": 20007
+    },
+    {
+      "agent_returns": [
+        0.10000000149011612,
+        -0.009999999776482582
+      ],
+      "score": 0.10000000149011612,
+      "steps": 52,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.5673076923076923,
+      "diagnostics": [],
+      "actor_training_seeds": [
+        22,
+        33
+      ],
+      "evaluation_seed": 20008
+    },
+    {
+      "agent_returns": [
+        1.2000000178813934,
+        1.1900000181049109
+      ],
+      "score": 1.2000000178813934,
+      "steps": 470,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.6106382978723405,
+      "diagnostics": [],
+      "actor_training_seeds": [
+        22,
+        33
+      ],
+      "evaluation_seed": 20009
+    },
+    {
+      "agent_returns": [
+        0.09000000171363354,
+        0.20000000298023224
+      ],
+      "score": 0.20000000298023224,
+      "steps": 70,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.5678571428571428,
+      "diagnostics": [],
+      "actor_training_seeds": [
+        22,
+        33
+      ],
+      "evaluation_seed": 20010
+    },
+    {
+      "agent_returns": [
+        -0.009999999776482582,
+        0.10000000149011612
+      ],
+      "score": 0.10000000149011612,
+      "steps": 31,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.5887096774193549,
+      "diagnostics": [],
+      "actor_training_seeds": [
+        22,
+        33
+      ],
+      "evaluation_seed": 20011
+    },
+    {
+      "agent_returns": [
+        0.10000000149011612,
+        0.09000000171363354
+      ],
+      "score": 0.10000000149011612,
+      "steps": 47,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.6648936170212766,
+      "diagnostics": [],
+      "actor_training_seeds": [
+        22,
+        33
+      ],
+      "evaluation_seed": 20012
+    },
+    {
+      "agent_returns": [
+        0.6000000089406967,
+        0.490000007674098
+      ],
+      "score": 0.6000000089406967,
+      "steps": 230,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.5934782608695652,
+      "diagnostics": [],
+      "actor_training_seeds": [
+        22,
+        33
+      ],
+      "evaluation_seed": 20013
+    },
+    {
+      "agent_returns": [
+        -0.009999999776482582,
+        0.10000000149011612
+      ],
+      "score": 0.10000000149011612,
+      "steps": 31,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.5725806451612904,
+      "diagnostics": [],
+      "actor_training_seeds": [
+        22,
+        33
+      ],
+      "evaluation_seed": 20014
+    },
+    {
+      "agent_returns": [
+        0.10000000149011612,
+        0.09000000171363354
+      ],
+      "score": 0.10000000149011612,
+      "steps": 52,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.5769230769230769,
+      "diagnostics": [],
+      "actor_training_seeds": [
+        22,
+        33
+      ],
+      "evaluation_seed": 20015
+    },
+    {
+      "agent_returns": [
+        0.0,
+        0.09000000171363354
+      ],
+      "score": 0.09000000171363354,
+      "steps": 30,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.625,
+      "diagnostics": [],
+      "actor_training_seeds": [
+        22,
+        33
+      ],
+      "evaluation_seed": 20016
+    },
+    {
+      "agent_returns": [
+        0.7900000121444464,
+        0.800000011920929
+      ],
+      "score": 0.800000011920929,
+      "steps": 332,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.6114457831325302,
+      "diagnostics": [],
+      "actor_training_seeds": [
+        22,
+        33
+      ],
+      "evaluation_seed": 20017
+    },
+    {
+      "agent_returns": [
+        1.0000000149011612,
+        0.8900000136345625
+      ],
+      "score": 1.0000000149011612,
+      "steps": 371,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.6091644204851752,
+      "diagnostics": [],
+      "actor_training_seeds": [
+        22,
+        33
+      ],
+      "evaluation_seed": 20018
+    },
+    {
+      "agent_returns": [
+        0.20000000298023224,
+        0.19000000320374966
+      ],
+      "score": 0.20000000298023224,
+      "steps": 90,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.6,
+      "diagnostics": [],
+      "actor_training_seeds": [
+        22,
+        33
+      ],
+      "evaluation_seed": 20019
+    },
+    {
+      "agent_returns": [
+        0.10000000149011612,
+        0.09000000171363354
+      ],
+      "score": 0.10000000149011612,
+      "steps": 52,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.5769230769230769,
+      "diagnostics": [],
+      "actor_training_seeds": [
+        22,
+        33
+      ],
+      "evaluation_seed": 20020
+    },
+    {
+      "agent_returns": [
+        0.20000000298023224,
+        0.19000000320374966
+      ],
+      "score": 0.20000000298023224,
+      "steps": 90,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.5916666666666667,
+      "diagnostics": [],
+      "actor_training_seeds": [
+        22,
+        33
+      ],
+      "evaluation_seed": 20021
+    },
+    {
+      "agent_returns": [
+        -0.009999999776482582,
+        0.0
+      ],
+      "score": 0.0,
+      "steps": 16,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.765625,
+      "diagnostics": [],
+      "actor_training_seeds": [
+        22,
+        33
+      ],
+      "evaluation_seed": 20022
+    },
+    {
+      "agent_returns": [
+        -0.009999999776482582,
+        0.0
+      ],
+      "score": 0.0,
+      "steps": 17,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.7647058823529411,
+      "diagnostics": [],
+      "actor_training_seeds": [
+        22,
+        33
+      ],
+      "evaluation_seed": 20023
+    },
+    {
+      "agent_returns": [
+        0.10000000149011612,
+        0.09000000171363354
+      ],
+      "score": 0.10000000149011612,
+      "steps": 52,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.5913461538461539,
+      "diagnostics": [],
+      "actor_training_seeds": [
+        22,
+        33
+      ],
+      "evaluation_seed": 20024
+    },
+    {
+      "agent_returns": [
+        0.0,
+        0.09000000171363354
+      ],
+      "score": 0.09000000171363354,
+      "steps": 30,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.65,
+      "diagnostics": [],
+      "actor_training_seeds": [
+        22,
+        33
+      ],
+      "evaluation_seed": 20025
+    },
+    {
+      "agent_returns": [
+        -0.009999999776482582,
+        0.10000000149011612
+      ],
+      "score": 0.10000000149011612,
+      "steps": 31,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.5725806451612904,
+      "diagnostics": [],
+      "actor_training_seeds": [
+        22,
+        33
+      ],
+      "evaluation_seed": 20026
+    },
+    {
+      "agent_returns": [
+        1.2000000178813934,
+        1.0900000166147947
+      ],
+      "score": 1.2000000178813934,
+      "steps": 470,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.6138297872340426,
+      "diagnostics": [],
+      "actor_training_seeds": [
+        22,
+        33
+      ],
+      "evaluation_seed": 20027
+    },
+    {
+      "agent_returns": [
+        -0.009999999776482582,
+        0.0
+      ],
+      "score": 0.0,
+      "steps": 22,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.7272727272727273,
+      "diagnostics": [],
+      "actor_training_seeds": [
+        22,
+        33
+      ],
+      "evaluation_seed": 20028
+    },
+    {
+      "agent_returns": [
+        0.09000000171363354,
+        0.20000000298023224
+      ],
+      "score": 0.20000000298023224,
+      "steps": 70,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.5964285714285714,
+      "diagnostics": [],
+      "actor_training_seeds": [
+        22,
+        33
+      ],
+      "evaluation_seed": 20029
+    },
+    {
+      "agent_returns": [
+        0.0,
+        0.09000000171363354
+      ],
+      "score": 0.09000000171363354,
+      "steps": 30,
+      "complete": true,
+      "truncated": false,
+      "legacy_done": [
+        true,
+        true
+      ],
+      "action_boundary_fraction": 0.6416666666666667,
+      "diagnostics": [],
+      "actor_training_seeds": [
+        22,
+        33
+      ],
+      "evaluation_seed": 20030
+    }
+  ]
+}

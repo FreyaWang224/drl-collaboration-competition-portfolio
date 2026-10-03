@@ -1,0 +1,241 @@
+{
+  "protocol": {
+    "status": "frozen_before_crossplay_runs",
+    "kind": "exploratory_post_training_analysis",
+    "algorithm": "maddpg",
+    "training_seeds": [
+      11,
+      22,
+      33
+    ],
+    "roles": "row supplies actor 0; column supplies actor 1; role indices never exchanged",
+    "evaluation_seeds": [
+      20001,
+      20002,
+      20003,
+      20004,
+      20005,
+      20006,
+      20007,
+      20008,
+      20009,
+      20010,
+      20011,
+      20012,
+      20013,
+      20014,
+      20015,
+      20016,
+      20017,
+      20018,
+      20019,
+      20020,
+      20021,
+      20022,
+      20023,
+      20024,
+      20025,
+      20026,
+      20027,
+      20028,
+      20029,
+      20030
+    ],
+    "external_episode_step_cap": 10000,
+    "parallel_pairs": 3,
+    "diagonal": "Reuse verified original-pair evaluations, identical model hashes and evaluation seeds",
+    "off_diagonal": "Six ordered role-specific pairings, 30 fresh Unity-process episodes each; no exploration, learning, checkpoint selection or retries",
+    "sources": {
+      "11": {
+        "checkpoint": "artifacts/models/maddpg_seed11.pt",
+        "sha256": "de34de21a4ac221b5f25d62b2dbe1720ee34c686b42d6c6f439aeffd8c4bf996",
+        "diagonal_records": "artifacts/maddpg_eval_seed11/episodes.json",
+        "diagonal_sha256": "1a24a3651a687280036c3cd8ea2cd61a0b701db13bb46bf285e23e483b2852cb"
+      },
+      "22": {
+        "checkpoint": "artifacts/models/maddpg_seed22.pt",
+        "sha256": "39f726a93e04c6ae70117be83ef6e80670e8a72058a58b98d47ef1ce4af61fa4",
+        "diagonal_records": "artifacts/maddpg_eval_seed22/episodes.json",
+        "diagonal_sha256": "870e9b2d8e614feaf1cb27f8a94d743eeaef915d6d8e3d4688299d7b826fd12f"
+      },
+      "33": {
+        "checkpoint": "artifacts/models/maddpg_seed33.pt",
+        "sha256": "14dcc2ade015b3cb52f8c3cfad6c1c0b3842a53142de50854b1549fc85b4559e",
+        "diagonal_records": "artifacts/maddpg_eval_seed33/episodes.json",
+        "diagonal_sha256": "832a5b090556e406fcbbb35992a705c22cf8ca952618eedfeedd01a607528249"
+      }
+    },
+    "metrics": "Per-cell mean of max undiscounted agent return, within-cell population SD, both agent-return means; signed self-play gap = row diagonal mean minus cell mean",
+    "aggregation": "Diagonal and off-diagonal means descriptive only; six off-diagonal cells share actors, not six independent training seeds; no CI or significance",
+    "truncation": "If any episode in a cell externally truncates, withhold cell aggregate; do not hide failed pairings",
+    "limits": "Legacy local_done internal timeout ambiguity; only three trained seeds and fixed actor roles; not arbitrary-partner generalization"
+  },
+  "cells": [
+    {
+      "actor0_seed": 11,
+      "actor1_seed": 11,
+      "diagonal_reused": true,
+      "episodes": 30,
+      "external_truncations": 0,
+      "mean_score": 2.4800000369548796,
+      "within_cell_population_sd": 0.44974067271560303,
+      "mean_agent_returns": [
+        2.4800000369548796,
+        2.4793333703031144
+      ],
+      "checkpoint_sha256": [
+        "de34de21a4ac221b5f25d62b2dbe1720ee34c686b42d6c6f439aeffd8c4bf996",
+        "de34de21a4ac221b5f25d62b2dbe1720ee34c686b42d6c6f439aeffd8c4bf996"
+      ],
+      "signed_self_play_gap": 0.0
+    },
+    {
+      "actor0_seed": 11,
+      "actor1_seed": 22,
+      "diagonal_reused": false,
+      "episodes": 30,
+      "external_truncations": 0,
+      "mean_score": 2.3930000356708963,
+      "within_cell_population_sd": 0.6382953956533098,
+      "mean_agent_returns": [
+        2.3793333688129983,
+        2.3930000356708963
+      ],
+      "checkpoint_sha256": [
+        "de34de21a4ac221b5f25d62b2dbe1720ee34c686b42d6c6f439aeffd8c4bf996",
+        "39f726a93e04c6ae70117be83ef6e80670e8a72058a58b98d47ef1ce4af61fa4"
+      ],
+      "signed_self_play_gap": 0.08700000128398333
+    },
+    {
+      "actor0_seed": 11,
+      "actor1_seed": 33,
+      "diagonal_reused": false,
+      "episodes": 30,
+      "external_truncations": 0,
+      "mean_score": 1.4630000218128165,
+      "within_cell_population_sd": 1.0226930287902525,
+      "mean_agent_returns": [
+        1.4340000214676063,
+        1.4396666882559657
+      ],
+      "checkpoint_sha256": [
+        "de34de21a4ac221b5f25d62b2dbe1720ee34c686b42d6c6f439aeffd8c4bf996",
+        "14dcc2ade015b3cb52f8c3cfad6c1c0b3842a53142de50854b1549fc85b4559e"
+      ],
+      "signed_self_play_gap": 1.017000015142063
+    },
+    {
+      "actor0_seed": 22,
+      "actor1_seed": 11,
+      "diagonal_reused": false,
+      "episodes": 30,
+      "external_truncations": 0,
+      "mean_score": 0.47633334044367076,
+      "within_cell_population_sd": 0.5913627476548373,
+      "mean_agent_returns": [
+        0.4213333398103714,
+        0.44500000681728125
+      ],
+      "checkpoint_sha256": [
+        "39f726a93e04c6ae70117be83ef6e80670e8a72058a58b98d47ef1ce4af61fa4",
+        "de34de21a4ac221b5f25d62b2dbe1720ee34c686b42d6c6f439aeffd8c4bf996"
+      ],
+      "signed_self_play_gap": 0.200333336306115
+    },
+    {
+      "actor0_seed": 22,
+      "actor1_seed": 22,
+      "diagonal_reused": true,
+      "episodes": 30,
+      "external_truncations": 0,
+      "mean_score": 0.6766666767497858,
+      "within_cell_population_sd": 0.86165862015212,
+      "mean_agent_returns": [
+        0.616333342778186,
+        0.6580000098794698
+      ],
+      "checkpoint_sha256": [
+        "39f726a93e04c6ae70117be83ef6e80670e8a72058a58b98d47ef1ce4af61fa4",
+        "39f726a93e04c6ae70117be83ef6e80670e8a72058a58b98d47ef1ce4af61fa4"
+      ],
+      "signed_self_play_gap": 0.0
+    },
+    {
+      "actor0_seed": 22,
+      "actor1_seed": 33,
+      "diagonal_reused": false,
+      "episodes": 30,
+      "external_truncations": 0,
+      "mean_score": 0.3750000056500236,
+      "within_cell_population_sd": 0.4879122261151429,
+      "mean_agent_returns": [
+        0.3403333385164539,
+        0.3430000053718686
+      ],
+      "checkpoint_sha256": [
+        "39f726a93e04c6ae70117be83ef6e80670e8a72058a58b98d47ef1ce4af61fa4",
+        "14dcc2ade015b3cb52f8c3cfad6c1c0b3842a53142de50854b1549fc85b4559e"
+      ],
+      "signed_self_play_gap": 0.30166667109976214
+    },
+    {
+      "actor0_seed": 33,
+      "actor1_seed": 11,
+      "diagonal_reused": false,
+      "episodes": 30,
+      "external_truncations": 0,
+      "mean_score": 1.52633335608989,
+      "within_cell_population_sd": 1.2280784178828041,
+      "mean_agent_returns": [
+        1.5050000226125122,
+        1.5240000228087107
+      ],
+      "checkpoint_sha256": [
+        "14dcc2ade015b3cb52f8c3cfad6c1c0b3842a53142de50854b1549fc85b4559e",
+        "de34de21a4ac221b5f25d62b2dbe1720ee34c686b42d6c6f439aeffd8c4bf996"
+      ],
+      "signed_self_play_gap": -0.005999999990065952
+    },
+    {
+      "actor0_seed": 33,
+      "actor1_seed": 22,
+      "diagonal_reused": false,
+      "episodes": 30,
+      "external_truncations": 0,
+      "mean_score": 1.382333353968958,
+      "within_cell_population_sd": 1.2199854916456687,
+      "mean_agent_returns": [
+        1.3550000203152497,
+        1.3800000206877787
+      ],
+      "checkpoint_sha256": [
+        "14dcc2ade015b3cb52f8c3cfad6c1c0b3842a53142de50854b1549fc85b4559e",
+        "39f726a93e04c6ae70117be83ef6e80670e8a72058a58b98d47ef1ce4af61fa4"
+      ],
+      "signed_self_play_gap": 0.13800000213086605
+    },
+    {
+      "actor0_seed": 33,
+      "actor1_seed": 33,
+      "diagonal_reused": true,
+      "episodes": 30,
+      "external_truncations": 0,
+      "mean_score": 1.520333356099824,
+      "within_cell_population_sd": 1.2416185409303813,
+      "mean_agent_returns": [
+        1.4830000221108397,
+        1.5126666893561682
+      ],
+      "checkpoint_sha256": [
+        "14dcc2ade015b3cb52f8c3cfad6c1c0b3842a53142de50854b1549fc85b4559e",
+        "14dcc2ade015b3cb52f8c3cfad6c1c0b3842a53142de50854b1549fc85b4559e"
+      ],
+      "signed_self_play_gap": 0.0
+    }
+  ],
+  "diagonal_mean": 1.5590000232681633,
+  "off_diagonal_mean": 1.2693333522727093,
+  "limitations": "Legacy local_done internal timeout ambiguity; only three trained seeds and fixed actor roles; not arbitrary-partner generalization",
+  "inference": "Diagonal and off-diagonal means descriptive only; six off-diagonal cells share actors, not six independent training seeds; no CI or significance"
+}

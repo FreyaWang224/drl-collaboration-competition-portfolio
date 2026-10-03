@@ -103,3 +103,7 @@ Formal MADDPG experiments are complete; see [MADDPG_REPORT.md](MADDPG_REPORT.md)
 ```
 
 The runner creates a new `runs/crossplay` directory, evaluates at most three pairs concurrently, validates records, and publishes an exploratory report only after actual completion. Output paths cannot silently overwrite earlier runs. Six off-diagonal pairings share actors and are not six independent training seeds.
+
+## Exploratory cross-play
+
+See [CROSSPLAY_REPORT.md](CROSSPLAY_REPORT.md) for the actual role-preserving 3 x 3 MADDPG partner matrix, and `PROTOCOL_CROSSPLAY.json` for the frozen protocol. This post-training analysis is separate from the baseline/MADDPG comparison; cross-play data do not select or tune checkpoints.
